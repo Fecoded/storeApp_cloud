@@ -10,13 +10,15 @@ import { GET_STOCK,
 import axios from 'axios';
 import setAuthToken from '../../utils/setAuthToken';
 
+const url = 'https://st-api.azurewebsites.net'
+
 export const getOutletStock = () => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
       }
 
       try {
-        const res = await axios.get('/purchase-items');
+        const res = await axios.get(`${url}/purchase-items`);
 
         dispatch({
             type: GET_STOCK,
@@ -51,7 +53,7 @@ export const createOutletStock = (formData) => async dispatch => {
     
       try {
           dispatch({ type: START_SPINNER })
-        const res = await axios.post('/purchase-items', formData, config)
+        const res = await axios.post(`${url}/purchase-items`, formData, config)
 
         
         dispatch({
@@ -76,7 +78,7 @@ export const removeStock = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/purchase-items/${id}`);
+         await axios.delete(`${url}/purchase-items/${id}`);
   
         dispatch({
             type: REMOVE_STOCK,

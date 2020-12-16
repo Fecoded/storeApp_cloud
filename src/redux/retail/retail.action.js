@@ -73,13 +73,15 @@ import { clearStock } from '../stock/stock.action';
 import Alert from './retail.utils';
 import jwtDecode from 'jwt-decode'
 
+const url = 'https://st-api.azurewebsites.net'
+
 export const getproduct = () => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
       }
 
     try {
-        const res = await axios.get('/products');
+        const res = await axios.get(`${url}/products`);
 
         dispatch({
             type: GET_PRODUCT,
@@ -99,7 +101,7 @@ export const getservice = () => async dispatch => {
       }
 
     try {
-        const res = await axios.get('/services');
+        const res = await axios.get(`${url}/services`);
 
         dispatch({
             type: GET_SERVICE,
@@ -119,7 +121,7 @@ export const getCategories = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/categories');
+        const res = await axios.get(`${url}/categories`);
 
         dispatch({
             type: GET_CATEGORIES,
@@ -139,7 +141,7 @@ export const getManufacturers = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/manufacturers');
+        const res = await axios.get(`${url}/manufacturers`);
 
         dispatch({
             type: GET_MANUFACTURERS,
@@ -159,7 +161,7 @@ export const getDepartments = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/departments');
+        const res = await axios.get(`${url}/departments`);
 
         dispatch({
             type: GET_DEPARTMENT,
@@ -179,7 +181,7 @@ export const getCustomers = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/customers');
+        const res = await axios.get(`${url}/customers`);
 
         dispatch({
             type: GET_CUSTOMER,
@@ -199,7 +201,7 @@ export const getStaffs = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/staffs');
+        const res = await axios.get(`${url}/staffs`);
 
         dispatch({
             type: GET_STAFF,
@@ -219,7 +221,7 @@ export const getSuppliers = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/suppliers');
+        const res = await axios.get(`${url}/suppliers`);
 
         dispatch({
             type: GET_SUPPLIER,
@@ -239,7 +241,7 @@ export const getStores = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/stores');
+        const res = await axios.get(`${url}/stores`);
 
         dispatch({
             type: GET_STORE,
@@ -259,7 +261,7 @@ export const getOutlets = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/outlets');
+        const res = await axios.get(`${url}/outlets`);
 
         dispatch({
             type: GET_OUTLET,
@@ -279,7 +281,7 @@ export const getStockAdjust = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/adjust-types');
+        const res = await axios.get(`${url}/adjust-types`);
 
         dispatch({
             type: GET_STOCKADJUST,
@@ -299,7 +301,7 @@ export const getPurchaseItem = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/purchase-items');
+        const res = await axios.get(`${url}/purchase-items`);
 
         dispatch({
             type: GET_PURCHASEITEM,
@@ -319,7 +321,7 @@ export const getInventory = () => async dispatch => {
       }
 
       try {
-        const res = await axios.get('/inventory');
+        const res = await axios.get(`${url}/inventory`);
 
         dispatch({
             type: GET_INVENTORY,
@@ -363,7 +365,7 @@ export const getExpensesItem = () => async dispatch => {
 
       try {
 
-        const res = await axios.get('/expense-items')
+        const res = await axios.get(`${url}/expense-items`)
 
 
         dispatch({
@@ -386,7 +388,7 @@ export const getQualification = () => async dispatch => {
 
       try {
 
-        const res = await axios.get(`/qualifications`)
+        const res = await axios.get(`${url}/qualifications`)
 
         dispatch({
             type: GET_QUALIFICATION,
@@ -408,7 +410,7 @@ export const getDesignation = () => async dispatch => {
 
       try {
 
-        const res = await axios.get('/designations')
+        const res = await axios.get(`${url}/designations`)
 
         dispatch({
             type: GET_DESIGNATION,
@@ -430,7 +432,7 @@ export const getExpenses = () => async dispatch => {
 
       try {
 
-        const res = await axios.get('/expenses')
+        const res = await axios.get(`${url}/expenses`)
 
         dispatch({
             type: GET_EXPENSES,
@@ -452,7 +454,7 @@ export const getSales = () => async dispatch => {
 
       try {
 
-        const res = await axios.get('/sales')
+        const res = await axios.get(`${url}/sales`)
 
         dispatch({
             type: GET_SALES,
@@ -479,7 +481,7 @@ export const getStocks = () => async dispatch => {
     
 
       try {
-        const res = await axios.get(`/inventory/outlet/${+outletid}`)
+        const res = await axios.get(`${url}/inventory/outlet/${+outletid}`)
 
         dispatch({
             type: GET_STOCKS,
@@ -507,7 +509,7 @@ export const createProduct = (formData) => async dispatch => {
       
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/products', formData, config);
+        const res = await axios.post(`${url}/products`, formData, config);
   
         dispatch({
             type: CREATE_PRODUCT,
@@ -542,7 +544,7 @@ export const createService = (formData) => async dispatch => {
       
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/services', formData, config);
+        const res = await axios.post(`${url}/services`, formData, config);
 
         dispatch({
             type: CREATE_SERVICE,
@@ -577,7 +579,7 @@ export const createCategory = (formData) => async dispatch => {
     try {
         dispatch({ type: START_SPINNER })
 
-        const res = await axios.post('/categories', formData, config);
+        const res = await axios.post(`${url}/categories`, formData, config);
   
         dispatch({
             type: CREATE_CATEGORY,
@@ -612,7 +614,7 @@ export const createManufacturer = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/manufacturers', formData, config);
+        const res = await axios.post(`${url}/manufacturers`, formData, config);
 
   
         dispatch({
@@ -646,7 +648,7 @@ export const createDepartment = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/departments', formData, config);
+        const res = await axios.post(`${url}/departments`, formData, config);
 
   
         dispatch({
@@ -681,7 +683,7 @@ export const createCustomer = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/customers', formData, config);
+        const res = await axios.post(`${url}/customers`, formData, config);
 
   
         dispatch({
@@ -717,7 +719,7 @@ export const createStaff = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/staffs', formData, config);
+        const res = await axios.post(`${url}/staffs`, formData, config);
 
   
         dispatch({
@@ -751,7 +753,7 @@ export const createSupplier = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/suppliers', formData, config);
+        const res = await axios.post(`${url}/suppliers`, formData, config);
 
   
         dispatch({
@@ -788,7 +790,7 @@ export const createStore = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/stores', formData, config);
+        const res = await axios.post(`${url}/stores`, formData, config);
 
   
         dispatch({
@@ -825,7 +827,7 @@ export const createOutlet = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/outlets', formData, config);
+        const res = await axios.post(`${url}/outlets`, formData, config);
 
   
         dispatch({
@@ -860,7 +862,7 @@ export const createInventory = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/inventory/purchase', formData, config);
+        const res = await axios.post(`${url}/inventory/purchase`, formData, config);
 
   
         dispatch({
@@ -893,7 +895,7 @@ export const createAdjustmentType = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/adjust-types', formData, config);
+        const res = await axios.post(`${url}/adjust-types`, formData, config);
         
   
         dispatch({
@@ -930,7 +932,7 @@ export const createStockAdjust = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/inventory/adjust', formData, config);
+        const res = await axios.post(`${url}/inventory/adjust`, formData, config);
         
   
         dispatch({
@@ -966,7 +968,7 @@ export const createExpenseItem = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/expense-items', formData, config);
+        const res = await axios.post(`${url}/expense-items`, formData, config);
         
   
         dispatch({
@@ -1002,7 +1004,7 @@ export const createExpense = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/expenses', formData, config);
+        const res = await axios.post(`${url}/expenses`, formData, config);
         
   
         // dispatch({
@@ -1042,7 +1044,7 @@ export const createDesignation = (formData) => async dispatch => {
     
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.post('/designations', formData, config);
+        const res = await axios.post(`${url}/designations`, formData, config);
         
   
         dispatch({
@@ -1077,7 +1079,7 @@ export const updateProduct = (formData) => async dispatch => {
 
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/products/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/products/${formData.id}`, formData, config);
 
   
         dispatch({
@@ -1110,7 +1112,7 @@ export const updateService = (formData) => async dispatch => {
 
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/services/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/services/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_SERVICE,
@@ -1142,7 +1144,7 @@ export const updateCategory = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/categories/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/categories/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_CATEGORY,
@@ -1174,7 +1176,7 @@ export const updateManufacturer = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/manufacturers/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/manufacturers/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_MANUFACTURER,
@@ -1207,7 +1209,7 @@ export const updateDepartment = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/departments/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/departments/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_DEPARTMENT,
@@ -1240,7 +1242,7 @@ export const updateCustomer = (formData) => async dispatch => {
 
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/customers/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/customers/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_CUSTOMER,
@@ -1275,7 +1277,7 @@ export const updateStaff = (formData) => async dispatch => {
 
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/staffs/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/staffs/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_STAFF,
@@ -1308,7 +1310,7 @@ export const updateSupplier = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/suppliers/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/suppliers/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_SUPPLIER,
@@ -1341,7 +1343,7 @@ export const updateStore = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/stores/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/stores/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_STORE,
@@ -1373,7 +1375,7 @@ export const updateOutlet = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/outlets/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/outlets/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_OUTLET,
@@ -1406,7 +1408,7 @@ export const updateStockAdjust = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/adjust-types/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/adjust-types/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_STOCKADJUST,
@@ -1438,7 +1440,7 @@ export const updateExpense = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/expense-items/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/expense-items/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_EXPENSE,
@@ -1470,7 +1472,7 @@ export const updateDesignation = (formData) => async dispatch => {
       }
       try {
         dispatch({ type: START_SPINNER })
-        const res = await axios.put(`/designations/${formData.id}`, formData, config);
+        const res = await axios.put(`${url}/designations/${formData.id}`, formData, config);
   
         dispatch({
             type: UPDATE_DESIGNATION,
@@ -1496,7 +1498,7 @@ export const deleteCategory = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/categories/${id}`);
+         await axios.delete(`${url}/categories/${id}`);
   
         dispatch({
             type: DELETE_CATEGORY,
@@ -1519,7 +1521,7 @@ export const deleteProduct = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/products/${id}`);
+         await axios.delete(`${url}/products/${id}`);
   
         dispatch({
             type: DELETE_PRODUCT,
@@ -1540,7 +1542,7 @@ export const deleteService = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/services/${id}`);
+         await axios.delete(`${url}/services/${id}`);
   
         dispatch({
             type: DELETE_SERVICE,
@@ -1561,7 +1563,7 @@ export const deleteManufacturer = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/manufacturers/${id}`);
+         await axios.delete(`${url}/manufacturers/${id}`);
   
         dispatch({
             type: DELETE_MANUFACTURER,
@@ -1584,7 +1586,7 @@ export const deleteDepartment = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/departments/${id}`);
+         await axios.delete(`${url}/departments/${id}`);
   
         dispatch({
             type: DELETE_DEPARTMENT,
@@ -1605,7 +1607,7 @@ export const deleteSupplier = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/suppliers/${id}`);
+         await axios.delete(`${url}/suppliers/${id}`);
   
         dispatch({
             type: DELETE_SUPPLIER,
@@ -1628,7 +1630,7 @@ export const deleteCustomer = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/customers/${id}`);
+         await axios.delete(`${url}/customers/${id}`);
   
         dispatch({
             type: DELETE_CUSTOMER,
@@ -1649,7 +1651,7 @@ export const deleteStaff = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/staffs/${id}`);
+         await axios.delete(`${url}/staffs/${id}`);
   
         dispatch({
             type: DELETE_STAFF,
@@ -1670,7 +1672,7 @@ export const deleteStore = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/stores/${id}`);
+         await axios.delete(`${url}/stores/${id}`);
   
         dispatch({
             type: DELETE_STORE,
@@ -1693,7 +1695,7 @@ export const deleteOutlet = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/outlets/${id}`);
+         await axios.delete(`${url}/outlets/${id}`);
   
         dispatch({
             type: DELETE_OUTLET,
@@ -1714,7 +1716,7 @@ export const deleteExpense = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/expense-items/${id}`);
+         await axios.delete(`${url}/expense-items/${id}`);
   
         dispatch({
             type: DELETE_EXPENSE,
@@ -1735,7 +1737,7 @@ export const deleteStockAdjust = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/adjust-types/${id}`);
+         await axios.delete(`${url}/adjust-types/${id}`);
   
         dispatch({
             type: DELETE_STOCKADJUST,
@@ -1756,7 +1758,7 @@ export const deleteDesignation = (id) => async dispatch => {
       }
 
       try {
-         await axios.delete(`/designations/${id}`);
+         await axios.delete(`${url}/designations/${id}`);
   
         dispatch({
             type: DELETE_DESIGNATION,

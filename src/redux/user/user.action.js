@@ -2,7 +2,8 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from './user.types';
 import axios from 'axios';
 import Alert from '../retail/retail.utils';
   
-  
+ 
+const url = 'https://st-api.azurewebsites.net'
   // USER LOGIN
 export const login = ({ username, password, setLoading }) => async (dispatch) => {
    
@@ -18,7 +19,7 @@ export const login = ({ username, password, setLoading }) => async (dispatch) =>
     try {
     
       setLoading(true)
-      const res = await axios.post('https://st-api.azurewebsites.net/login', body, config);
+      const res = await axios.post(`${url}/login`, body, config);
 
       dispatch({
         type: LOGIN_SUCCESS,
