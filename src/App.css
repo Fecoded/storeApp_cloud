@@ -1,0 +1,78 @@
+.h-8 {
+  height: 8px;
+}
+.h-10 {
+  height: 10px;
+}
+.h-300 {
+  height: 300px;
+}
+.h-38 {
+  height: 38px;
+}
+
+.w-35 {
+  width: 35%;
+}
+
+.fixed-layout {
+  height: calc(100vh - 225px) !important;
+  overflow-y: scroll !important;
+}
+.fixed-layout::-webkit-scrollbar {
+  width: 2px;
+}
+
+.fixed-layout::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+.fixed-layout-2 {
+  height: calc(100vh - 160px) !important;
+}
+
+.fixed-layout-2::-webkit-scrollbar {
+  width: 2px;
+}
+
+.fixed-layout-2::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+.app-action {
+  flex-direction: column !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.auto-complete {
+  margin-bottom: 2px !important;
+}
+
+.list-group {
+  z-index: 2 !important;
+}
+
+.list-group li:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.hidden {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 992px) {
+  .hide {
+    display: block !important;
+  }
+}
